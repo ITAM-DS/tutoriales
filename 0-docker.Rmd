@@ -1,0 +1,210 @@
+---
+title: "Docker"
+author: "Adolfo De Unánue T."
+date: "14/01/2015"
+output: html_document
+---
+
+# Docker
+
+## ¿Qué es docker?
+
+Es una plataforma de virtualización además de un conjunto de comandos para establecer *workflows* de trabajo que permitan crear, instalar, compartir etc, aplicaciones.
+
+**Docker** está compuesto de dos partes un *daemon* o un servidor y un *cliente*, el comando `docker`. 
+
+## Instalación
+
+- [Mac OS X](http://docs.docker.com/installation/mac/)
+  - [Otro lugar](http://blog.javabien.net/2014/03/03/setup-docker-on-osx-the-no-brainer-way/)
+  - [Un lugar más](http://zaiste.net/2014/02/lightweight_docker_experience_on_osx/)
+- [Ubuntu](http://docs.docker.com/installation/ubuntulinux/)
+- [MS Windows](http://docs.docker.com/installation/windows/)
+
+## Imágen y contenedores
+
+Una **imagen** es una especie de cascarón o plantilla no modificable. 
+
+> **Ejemplo** 
+> Ejemplos de imágenes son `ubuntu` y la imagen de la clase con la que trabajaremos (`nanounanue/docker-ds`).
+
+Un **contenedor** es creado a partir de una *imagen*. Los contenedores es aquello con lo que vas a interactuar. Pueden ser ejecutados, iniciados, detenidos, movidos, borrados, etc. Cada contenedor es un ambiente aislado. Aunque pueden ser [conectados entre sí](http://docs.docker.com/userguide/dockerlinks/).
+
+
+Para ver qué imágenes hay
+
+```
+docker images
+```
+
+
+## Ejercicio
+
+> **NOTA:** Si no tienen instalado `docker` por favor júntense con un compañero y háganlo luego en su casa.
+
+> **NOTA:** Si están en `ubuntu` y no configuraron su usuario como miembros del grupo `docker` agreguen `sudo` al principio de cada comando
+
+
+- En su computadora, abran una terminal 
+  - Si están en `MacOSX` ejecuten
+  ```
+   $ boot2docker init
+   $ boot2docker start
+   $ export DOCKER_HOST=tcp://$(boot2docker ip 2>/dev/null):2375
+   $ echo $DOCKER_HOST
+ ```
+ 
+ 
+- Verifiquen que el cliente `docker` esté instalado tecleando `docker`
+- Verifiquen que el *daemon* esté corriendo con `docker run hello-world`, se debería de mostrar algo parecido a lo siguiente:
+
+```
+docker run hello-world
+Unable to find image 'hello-world:latest' locally
+hello-world:latest: The image you are pulling has been verified
+
+31cbccb51277: Pull complete 
+e45a5af57b00: Pull complete 
+511136ea3c5a: Already exists 
+Status: Downloaded newer image for hello-world:latest
+Hello from Docker.
+This message shows that your installation appears to be working correctly.
+
+To generate this message, Docker took the following steps:
+ 1. The Docker client contacted the Docker daemon.
+ 2. The Docker daemon pulled the "hello-world" image from the Docker Hub.
+    (Assuming it was not already locally available.)
+ 3. The Docker daemon created a new container from that image which runs the
+    executable that produces the output you are currently reading.
+ 4. The Docker daemon streamed that output to the Docker client, which sent it
+    to your terminal.
+
+To try something more ambitious, you can run an Ubuntu container with:
+ $ docker run -it ubuntu bash
+
+For more examples and ideas, visit:
+ http://docs.docker.com/userguide/
+
+```
+
+
+- Descarguen una *imagen* de `ubuntu`
+
+
+```
+docker pull ubuntu:latest
+```
+
+- (Si la red está imposible, pidan el `USB stick` y ejecuten `docker load < /home/ubuntu-latest.tar`)
+
+- Verifiquen que la imagen esté en su computadora
+
+```
+docker images
+```
+
+
+- Para crear un contenedor interactivo:
+
+```
+docker run -i -t ubuntu /bin/bash
+```
+
+(Aquí podemos hacer lo que se pide en las siguientes secciones de este *lecture*)
+
+
+Para salir de este contendor tecleen `exit`.
+
+- Para verificar que el contenedor está ahí:
+
+```
+docker ps -a
+```
+
+
+**Nota** Si estás en MacOS ó Windows, apunta la dirección IP en la cual está corriendo `boot2docker`:
+
+```
+boot2docker ip
+```
+
+
+
+
+## ¿Y la imagen de la clase?
+
+Descargarla
+
+```
+docker pull nanounanue/docker-ds
+```
+
+Creen un contenedor:
+
+```
+docker run -d -p 8787:8787 -p 8888:8888 -v path_a_carpeta:/home/itam/proyectos nanounanue/docker-ds
+```
+
+
+El `path_a_carpeta` se refiere a la salida del comando `pwd` en tu carpeta donde guardes tus proyectos (recomendado: `proyectos`).
+En MS Windows regularmente es algo como `/c/Users/<Mi nombre de usuario en mi compu>/proyectos` y en MacOS es `/Users/<Minombre de usuario/proyectos`.
+
+
+Podemos probar que está ejecutándose `RStudio`:
+
+Abran en el navegador la página `http://0.0.0.0:8787` (Si estás en GNU/Linux) o `http://192.168.59.103:8787` (quizá sea esta, verifica el paso del `boot2docker ip`), deberían de ver la entrada de RStudio.
+
+
+Las credenciales son:
+
+  - usuario: `itam`
+  - password: `itam`
+
+
+Si llegaron hasta acá ¡Felicidades! No sufrirán más de lo necesario este curso.
+
+Para salir de `docker` usen `Ctrl-C`.
+
+
+## ¿Y la próxima vez?
+
+- La siguiente vez que quieras ejecutar `docker` usa el siguiente comando:
+
+```
+docker start stoic_hopper # Esto funciona si ejecutaste la versión de demonio
+```
+
+ó
+
+```
+docker start -a -i stoic_hopper # Esto funciona si ejecutaste la versión de interactiva
+```
+
+donde debes de cambiar `stoic_hopper` por el nombre del contenedor (la última columna de `docker ps -a`).
+
+
+## Es posible también...
+
+Lanzar una terminal de `R` sin usar Rstudio
+
+```
+docker run  -it --user itam --name r-console -v path_a_carpeta:/home/itam/proyectos nanounanue/docker-ds /usr/bin/R
+```
+
+Lanzar la terminal de `python` con las librerías de cómputo científico:
+
+```
+docker run  -it --user itam --name ipython-console -v path_a_carpeta:/home/itam/proyectos nanounanue/docker-ds ipython
+```
+
+O un shell simple (en este caso `zsh`)
+
+```
+docker run -it --user itam  --name commandline -v path_a_carpeta:/home/itam/proyectos nanounanue/docker-ds /bin/zsh
+```
+
+**Nota** Recuerda que el comando `run` crea un contenedor nuevo, si quieres reutilizar el contenedor, debes de eliminar la bandera `--rm`  y usar `start`.
+
+## Liga de ayuda
+
+Pueden ver [esto](https://github.com/wsargent/docker-cheat-sheet) si tienen dudas
