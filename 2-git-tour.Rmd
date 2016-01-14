@@ -217,7 +217,7 @@ por comodidad, podemos usar **Github** de tal manera.
 El repositorio de la clase está en:
 
 ```
-https://github.com/ITAM-DS/big-data
+https://github.com/ITAM-DS/tutoriales
 ```
 
 Lo primero que hay que hacer es **forkear** este repositorio. La
@@ -226,7 +226,7 @@ de github. Para obtener una copia de trabajo en su computadora deberán
 de **clonar** su repositorio:
 
 ```
-➜ git clone https://github.com/<usuario_git_hub>/big-data.git
+➜ git clone https://github.com/<usuario_git_hub>/tutoriales.git
 ```
 
 Esto creará una carpeta `big-data` en su `$HOME`.
@@ -265,35 +265,35 @@ En tu computadora, en `docker` en la carpeta
 
 En tu carpeta debería de aparecer el archivo `prueba.txt`. Ahora
 quedan por contestar dos preguntas: (1) ¿Cómo actualizo el repositorio
-`ITAM-DS/big-data` (para entregar tarea por ejemplo?
+`ITAM-DS/tutoriales` (para entregar tarea por ejemplo?
 y (2) ¿Cómo actualizo mi repositorio con los cambios del repositorio
-de `ITAM-DS/big-data`?
+de `ITAM-DS/tutoriales`?
 
 Para ambas preguntas es necesario aclarar el concepto de los `remote`:
 Si ejecutas
 
 ```
 ➜ git remote -v
-origin  https://github.com/<usuario>/big-data.git (fetch)
-origin  https://github.com/<usuario>/big-data.git (push)
+origin  https://github.com/<usuario>/tutoriales.git (fetch)
+origin  https://github.com/<usuario>/tutoriales.git (push)
 ```
 
 Vamos a agregar como `remote` el repositorio
-`ITAM-DS/big-data`:
+`ITAM-DS/tutoriales`:
 
 ```
 ➜ git remote add repo-clase
-https://github.com/ITAM-DS/big-data.git
+https://github.com/ITAM-DS/tutoriales.git
 ```
 
 Ejecuta de nuevo `git remote -v`
 
 ```
 ➜ git remote -v
-origin  https://github.com/ITAM-DS/big-data.git (fetch)
-origin  https://github.com/ITAM-DS/big-data.git (push)
-repo-clase      https://github.com/ITAM-DS/big-data.git (fetch)
-repo-clase      https://github.com/ITAM-DS/big-data.git (push)
+origin  https://github.com/ITAM-DS/tutoriales.git (fetch)
+origin  https://github.com/ITAM-DS/tutoriales.git (push)
+repo-tutoriales      https://github.com/ITAM-DS/tutoriales.git (fetch)
+repo-tutoriales      https://github.com/ITAM-DS/tutoriales.git (push)
 ```
 
 Entonces, la respuesta a la primera pregunta es una técnica llamada `pull-request` que en
@@ -303,7 +303,7 @@ click en `Pull Requests` y sigue las instrucciones de la pantalla.
 Una vez **autorizado** el `pull-request` es necesario hacer
 
 ```
-➜ git pull repo-clase master
+➜ git pull repo-tutoriales master
 ➜ git push origin master
 ```
 
@@ -314,7 +314,7 @@ Para responder la segunda respuesta usamos la misma cadena de
 comandos:
 
 ```
-➜ git pull repo-clase master
+➜ git pull repo-tutoriales master
 ➜ git push origin master
 ```
 
@@ -327,7 +327,7 @@ Te sientas en la compu, abres `docker`, te cambias al usuario `itam`
 y:
 
 ```
-➜ cd big-data
+➜ cd tutoriales
 ➜ git pull origin master
 ```
 
