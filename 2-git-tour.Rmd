@@ -369,3 +369,7 @@ terminado si en el repositorio `ITAM-DS/big-data`
 están sus cambios.
 
 ¡Has terminado! Ahora puedes irte a descansar y disfrutar del sol...
+
+
+## Referencias adicionales
+[Code school - Try Git](https://www.codeschool.com/courses/try-git)
