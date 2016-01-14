@@ -1,7 +1,7 @@
 ---
 title: "La línea de comandos"
 author: "Adolfo De Unánue T."
-date: "14/01/2015"
+date: "14/01/2016"
 output: html_document
 ---
 
@@ -274,3 +274,9 @@ Con estos ejercicios deberías de ser capaz de manejar los básicos del
 [esto](https://github.com/robbyrussell/oh-my-zsh/wiki/Cheatsheet).
 
 Además, en tu `docker` el `zsh` viene recargado con `oh-my-zsh`.
+
+
+## Referencias adicionales
+
+- [Codecademy - Learn the Command Line](https://www.codecademy.com/learn/learn-the-command-line)
+
