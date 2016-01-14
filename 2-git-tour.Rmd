@@ -1,7 +1,7 @@
 ---
 title: "Control de Versiones con Git"
 author: "Adolfo De Unánue T."
-date: "14/01/2015"
+date: "14/01/2016"
 output: html_document
 ---
 
