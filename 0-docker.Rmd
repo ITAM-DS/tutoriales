@@ -1,7 +1,7 @@
 ---
 title: "Docker"
 author: "Adolfo De Unánue T."
-date: "14/01/2015"
+date: "14/01/2016"
 output: html_document
 ---
 
@@ -15,11 +15,9 @@ Es una plataforma de virtualización además de un conjunto de comandos para est
 
 ## Instalación
 
-- [Mac OS X](http://docs.docker.com/installation/mac/)
-  - [Otro lugar](http://blog.javabien.net/2014/03/03/setup-docker-on-osx-the-no-brainer-way/)
-  - [Un lugar más](http://zaiste.net/2014/02/lightweight_docker_experience_on_osx/)
-- [Ubuntu](http://docs.docker.com/installation/ubuntulinux/)
-- [MS Windows](http://docs.docker.com/installation/windows/)
+- [Mac OS X](https://docs.docker.com/mac/step_one/)
+- [Ubuntu](https://docs.docker.com/linux/step_one/)
+- [MS Windows](https://docs.docker.com/windows/step_one/)
 
 ## Imágen y contenedores
 
@@ -31,7 +29,7 @@ Una **imagen** es una especie de cascarón o plantilla no modificable.
 Un **contenedor** es creado a partir de una *imagen*. Los contenedores es aquello con lo que vas a interactuar. Pueden ser ejecutados, iniciados, detenidos, movidos, borrados, etc. Cada contenedor es un ambiente aislado. Aunque pueden ser [conectados entre sí](http://docs.docker.com/userguide/dockerlinks/).
 
 
-Para ver qué imágenes hay
+Para ver qué imágenes hay en tu computadora:
 
 ```
 docker images
@@ -42,19 +40,12 @@ docker images
 
 > **NOTA:** Si no tienen instalado `docker` por favor júntense con un compañero y háganlo luego en su casa.
 
-> **NOTA:** Si están en `ubuntu` y no configuraron su usuario como miembros del grupo `docker` agreguen `sudo` al principio de cada comando
+> **NOTA:** Si están en `ubuntu` y no configuraron su usuario como miembros del grupo `docker` agreguen `sudo` al principio de cada comando 
+
+> **NOTA** Al final de las instrucciones de instalación en ubuntu, viene como eliminar la molestia de teclear `sudo` antes de todos los comandos.
 
 
 - En su computadora, abran una terminal 
-  - Si están en `MacOSX` ejecuten
-  ```
-   $ boot2docker init
-   $ boot2docker start
-   $ export DOCKER_HOST=tcp://$(boot2docker ip 2>/dev/null):2375
-   $ echo $DOCKER_HOST
- ```
- 
- 
 - Verifiquen que el cliente `docker` esté instalado tecleando `docker`
 - Verifiquen que el *daemon* esté corriendo con `docker run hello-world`, se debería de mostrar algo parecido a lo siguiente:
 
