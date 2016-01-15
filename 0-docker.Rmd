@@ -24,7 +24,7 @@ Es una plataforma de virtualización además de un conjunto de comandos para est
 Una **imagen** es una especie de cascarón o plantilla no modificable. 
 
 > **Ejemplo** 
-> Ejemplos de imágenes son `ubuntu` y la imagen de la clase con la que trabajaremos (`ITAM-DS/docker-ds`).
+> Ejemplos de imágenes son `ubuntu` y la imagen de la clase con la que trabajaremos (`nanounanue/docker-ds`).
 
 Un **contenedor** es creado a partir de una *imagen*. Los contenedores es aquello con lo que vas a interactuar. Pueden ser ejecutados, iniciados, detenidos, movidos, borrados, etc. Cada contenedor es un ambiente aislado. Aunque pueden ser [conectados entre sí](http://docs.docker.com/userguide/dockerlinks/).
 
@@ -127,13 +127,13 @@ boot2docker ip
 Descargarla
 
 ```
-docker pull ITAM-DS/docker-ds
+docker pull nanounanue/docker-ds
 ```
 
 Creen un contenedor:
 
 ```
-docker run -d -p 8787:8787 -p 8888:8888 -v path_a_carpeta:/home/itam/proyectos ITAM-DS/docker-ds
+docker run -d -p 8787:8787 -p 8888:8888 -v path_a_carpeta:/home/itam/proyectos nanounanue/docker-ds
 ```
 
 
@@ -179,19 +179,19 @@ donde debes de cambiar `stoic_hopper` por el nombre del contenedor (la última c
 Lanzar una terminal de `R` sin usar Rstudio
 
 ```
-docker run  -it --user itam --name r-console -v path_a_carpeta:/home/itam/proyectos ITAM-DS/docker-ds /usr/bin/R
+docker run  -it --user itam --name r-console -v path_a_carpeta:/home/itam/proyectos nanounanue/docker-ds /usr/bin/R
 ```
 
 Lanzar la terminal de `python` con las librerías de cómputo científico:
 
 ```
-docker run  -it --user itam --name ipython-console -v path_a_carpeta:/home/itam/proyectos ITAM-DS/docker-ds ipython
+docker run  -it --user itam --name ipython-console -v path_a_carpeta:/home/itam/proyectos nanounanue/docker-ds ipython
 ```
 
 O un shell simple (en este caso `zsh`)
 
 ```
-docker run -it --user itam  --name commandline -v path_a_carpeta:/home/itam/proyectos ITAM-DS/docker-ds /bin/zsh
+docker run -it --user itam  --name commandline -v path_a_carpeta:/home/itam/proyectos nanounanue/docker-ds /bin/zsh
 ```
 
 **Nota** Recuerda que el comando `run` crea un contenedor nuevo, si quieres reutilizar el contenedor, debes de eliminar la bandera `--rm`  y usar `start`.
