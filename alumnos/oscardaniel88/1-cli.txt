@@ -1,0 +1,106 @@
+##Cli.RMD
+##Entramos a docker-ds en modo Bash
+docker run -i -t nanounanue/docker-ds /bin/bash
+root@d330683c738c:/home/itam# whoami
+root
+root@d330683c738c:/home/itam# su itam
+  ~ whoami
+itam
+  ~ pwd
+/home/itam
+ls -a  
+-a, --all
+        do not ignore entries starting with .
+
+-l     use a long listing format
+-h, --human-readable
+       with -l and/or -s, print human readable sizes (e.g., 1K 234M 2G)
+
+root@d330683c738c:/home/itam# env
+DEBIAN-FRONTEND=noninteractive
+ITAM_UID=1000
+HOSTNAME=d330683c738c
+ITAM_USER=itam
+RSTUDIO_URL=https://download2.rstudio.org/rstudio-server-0.99.903-amd64.deb
+TERM=xterm
+RSTUDIO_VERSION=0.99.903
+LS_COLORS=rs=0:di=01;34:ln=01;36:mh=00:pi=40;33:so=01;35:do=01;35:bd=40;33;01:cd=40;33;01:or=40;31;01:mi=00:su=37;41:sg=
+30;43:ca=30;41:tw=30;42:ow=34;42:st=37;44:ex=01;32:*.tar=01;31:*.tgz=01;31:*.arc=01;31:*.arj=01;31:*.taz=01;31:*.lha=01;
+31:*.lz4=01;31:*.lzh=01;31:*.lzma=01;31:*.tlz=01;31:*.txz=01;31:*.tzo=01;31:*.t7z=01;31:*.zip=01;31:*.z=01;31:*.Z=01;31:
+*.dz=01;31:*.gz=01;31:*.lrz=01;31:*.lz=01;31:*.lzo=01;31:*.xz=01;31:*.bz2=01;31:*.bz=01;31:*.tbz=01;31:*.tbz2=01;31:*.tz
+=01;31:*.deb=01;31:*.rpm=01;31:*.jar=01;31:*.war=01;31:*.ear=01;31:*.sar=01;31:*.rar=01;31:*.alz=01;31:*.ace=01;31:*.zoo
+=01;31:*.cpio=01;31:*.7z=01;31:*.rz=01;31:*.cab=01;31:*.jpg=01;35:*.jpeg=01;35:*.gif=01;35:*.bmp=01;35:*.pbm=01;35:*.pgm
+=01;35:*.ppm=01;35:*.tga=01;35:*.xbm=01;35:*.xpm=01;35:*.tif=01;35:*.tiff=01;35:*.png=01;35:*.svg=01;35:*.svgz=01;35:*.m
+ng=01;35:*.pcx=01;35:*.mov=01;35:*.mpg=01;35:*.mpeg=01;35:*.m2v=01;35:*.mkv=01;35:*.webm=01;35:*.ogm=01;35:*.mp4=01;35:*
+.m4v=01;35:*.mp4v=01;35:*.vob=01;35:*.qt=01;35:*.nuv=01;35:*.wmv=01;35:*.asf=01;35:*.rm=01;35:*.rmvb=01;35:*.flc=01;35:*
+.avi=01;35:*.fli=01;35:*.flv=01;35:*.gl=01;35:*.dl=01;35:*.xcf=01;35:*.xwd=01;35:*.yuv=01;35:*.cgm=01;35:*.emf=01;35:*.o
+gv=01;35:*.ogx=01;35:*.aac=00;36:*.au=00;36:*.flac=00;36:*.m4a=00;36:*.mid=00;36:*.midi=00;36:*.mka=00;36:*.mp3=00;36:*.
+mpc=00;36:*.ogg=00;36:*.ra=00;36:*.wav=00;36:*.oga=00;36:*.opus=00;36:*.spx=00;36:*.xspf=00;36:
+PATH=/usr/lib/rstudio-server/bin/:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin
+REFRESHED_AT=2016-08-19
+PWD=/home/itam
+SHLVL=1
+HOME=/root
+_=/usr/bin/env
+
+root@d330683c738c:/home/itam# echo $ITAM_USER
+itam
+
+root@d330683c738c:/home/itam# cd /root
+root@d330683c738c:~# pwd
+/root
+
+
+root@d330683c738c:/home/itam# mkdir test
+root@d330683c738c:/home/itam# cd test
+root@d330683c738c:/home/itam/test#
+root@d330683c738c:/home/itam/test# rm holta.txt
+root@d330683c738c:/home/itam# rm -d test
+root@d330683c738c:/home/itam# mkdir tmp
+root@1873f0044de1:/home/itam/tmp# cp copiame.txt copiado.txt
+root@1873f0044de1:/home/itam/tmp# ls
+copiado.txt  copiame.txt
+root@1873f0044de1:/home/itam/tmp#
+root@1873f0044de1:/home/itam/tmp# rm copiame.txt
+root@1873f0044de1:/home/itam/tmp# rm copiado.txt~
+root@1873f0044de1:/home/itam/tmp# ls
+root@1873f0044de1:/home/itam/tmp# cd ..
+root@1873f0044de1:/home/itam# rm tmp
+rm: cannot remove 'tmp': Is a directory
+root@1873f0044de1:/home/itam# rm -d tmp
+root@1873f0044de1:/home/itam#
+
+root@1873f0044de1:/home/itam# wc -l /etc/passwd
+26 /etc/passwd
+
+root@1873f0044de1:/home/itam# head /etc/passwd
+root:x:0:0:root:/root:/bin/bash
+daemon:x:1:1:daemon:/usr/sbin:/usr/sbin/nologin
+bin:x:2:2:bin:/bin:/usr/sbin/nologin
+sys:x:3:3:sys:/dev:/usr/sbin/nologin
+sync:x:4:65534:sync:/bin:/bin/sync
+games:x:5:60:games:/usr/games:/usr/sbin/nologin
+man:x:6:12:man:/var/cache/man:/usr/sbin/nologin
+lp:x:7:7:lp:/var/spool/lpd:/usr/sbin/nologin
+mail:x:8:8:mail:/var/mail:/usr/sbin/nologin
+news:x:9:9:news:/var/spool/news:/usr/sbin/nologin
+
+root@1873f0044de1:/home/itam# tail -3 /etc/passwd
+messagebus:x:105:107::/var/run/dbus:/bin/false
+colord:x:106:109:colord colour management daemon,,,:/var/lib/colord:/bin/false
+itam:x:1000:100::/home/itam:/bin/zsh
+
+root@1873f0044de1:/home/itam# echo 'Hola mundo' >> test
+root@1873f0044de1:/home/itam# echo 'Adios mundo cruel' >> test
+root@1873f0044de1:/home/itam# cat test
+Hola mundo
+Adios mundo cruel
+root@1873f0044de1:/home/itam# cp test test2
+root@1873f0044de1:/home/itam# cat test test2 > test3
+root@1873f0044de1:/home/itam# xc -l test*
+bash: xc: command not found
+root@1873f0044de1:/home/itam# wc -l test*
+  2 test
+  2 test2
+  4 test3
+  8 total

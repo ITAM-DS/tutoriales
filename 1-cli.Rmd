@@ -1,73 +1,73 @@
 ---
-title: "La lÃ­nea de comandos"
-author: "Adolfo De UnÃ¡nue T."
+title: "La línea de comandos"
+author: "Adolfo De Unánue T."
 date: "14/01/2016"
 output: html_document
 ---
 
-# La lÃ­nea de comandos
+# La línea de comandos
 
-**NOTA**: Esta *lecture* estÃ¡ basada parcialmente en las notas del curso C4P de California Polytechnic State University, San Luis Obispo
+**NOTA**: Esta *lecture* está basada parcialmente en las notas del curso C4P de California Polytechnic State University, San Luis Obispo
 
 
-## IntroducciÃ³n
+## Introducción
 
 El `shell` de Unix (en su caso particular es un `shell` de
-`GNU/Linux`), es mÃ¡s viejo que todos nosotros. Y el hecho de que siga
-activo, y en uso, se debe a que es una de las invenciones humanas mÃ¡s
+`GNU/Linux`), es más viejo que todos nosotros. Y el hecho de que siga
+activo, y en uso, se debe a que es una de las invenciones humanas más
 exitosas para usar la computadora de manera eficiente.
 
-De una manera muy rÃ¡pida el `shell` puede hacer lo siguiente:
+De una manera muy rápida el `shell` puede hacer lo siguiente:
 
-- Un intÃ©rprete interactivo: lee comandos, encuentra los programas
+- Un intérprete interactivo: lee comandos, encuentra los programas
   correspondientes, los ejecuta y despliega la salida.
   - Esto se conoce como **REPL**: *Read, Evaluate, Print, Loop*
-- La salida puede ser redireccionada a otro lugar ademÃ¡s e la
+- La salida puede ser redireccionada a otro lugar además e la
   pantalla. (Usando `>` y `<`).
-- Una cosa muy poderosa (y en la que estÃ¡ basada --como casi todo lo
-  actual--) es combinar comandos que son muy bÃ¡sicos (sÃ³lo hacen una
-  sola cosa) con otros para hacer cosas mÃ¡s complicadas (esto es con
+- Una cosa muy poderosa (y en la que está basada --como casi todo lo
+  actual--) es combinar comandos que son muy básicos (sólo hacen una
+  sola cosa) con otros para hacer cosas más complicadas (esto es con
   un *pipe* `|`).
-- Mantiene un histÃ³rico que permite rejecutar cosas del pasado.
-- La informaciÃ³n es guardada jerÃ¡rquicamente en carpetas o directorios.
-- Existen comandos para hacer bÃºsquedas dentro de archivos (`grep`) o
+- Mantiene un histórico que permite rejecutar cosas del pasado.
+- La información es guardada jerárquicamente en carpetas o directorios.
+- Existen comandos para hacer búsquedas dentro de archivos (`grep`) o
   para buscar archivos (`find`) que combinados pueden ser muy
   poderosos.
-  - Uno puede hacer *data analysis* solamente con estos comandos, asÃ­
+  - Uno puede hacer *data analysis* solamente con estos comandos, así
     de poderosos son.
 - Las ejecuciones pueden ser pausadas, ejecutadas en el *fondo* o en
-  mÃ¡quinas remotas.
-- AdemÃ¡s es posible definir variables para usarse por otros programas.
-- El `shell` cuenta con todo un lenguaje de programaciÃ³n, lo que
+  máquinas remotas.
+- Además es posible definir variables para usarse por otros programas.
+- El `shell` cuenta con todo un lenguaje de programación, lo que
   permite ejecutar cosas en **bucles**, **condicionales**, y hasta
   cosas en paralelo.
 
 ## La computadora desde cerca
 
-Al final las computadoras sÃ³lo hacen cuatro cosas:
+Al final las computadoras sólo hacen cuatro cosas:
 
 - Ejecutan programas
 - Almacenan datos
-- Se comunican entre sÃ­ para hacer las cosas reciÃ©n mencionadas.
-- InteractÃºan con nosotros.
-  - La interacciÃ³n puede ser grÃ¡fica (como estÃ¡n acostumbrados)
-    conocida tambiÃ©n como **GUI** (*Graphical User Interface*) vÃ­a el
-    ratÃ³n u otro perifÃ©rico, o desde la lÃ­nea de comandos, llamada
+- Se comunican entre sí para hacer las cosas recién mencionadas.
+- Interactúan con nosotros.
+  - La interacción puede ser gráfica (como están acostumbrados)
+    conocida también como **GUI** (*Graphical User Interface*) vía el
+    ratón u otro periférico, o desde la línea de comandos, llamada
     como **CLI** (*Command Line Interface*).
 
 ## El ambiente desde cerca
 
-El ambiente estÃ¡ formado por 4 capas:
+El ambiente está formado por 4 capas:
 
-- Herramientas de lÃ­nea de comandos
-  - De estos hay cinco tipos: Ejecutable Binario, *Builtin*, *Script* Interpretado, FunciÃ³n del *Shell* y `alias`.
+- Herramientas de línea de comandos
+  - De estos hay cinco tipos: Ejecutable Binario, *Builtin*, *Script* Interpretado, Función del *Shell* y `alias`.
 - Terminal
 - *Shell*
 - Sistema Operativo
 
-## La lÃ­nea de comandos
+## La línea de comandos
 
-La lÃ­nea de comandos es lo que estarÃ¡ entre nosotros y la computadora
+La línea de comandos es lo que estará entre nosotros y la computadora
 casi todo el tiempo en este curso. De hecho, una lectura obligada (no
 me hagan que la deje de tarea es
 [In the beginning...was de command line](http://faculty.georgetown.edu/irvinem/theory/Stephenson-CommandLine-1999.pdf)
@@ -75,102 +75,102 @@ de *Neal Stephenson*, el escritor de
 [**Criptonomicon**.](https://play.google.com/store/books/details/Neal_Stephenson_Cryptonomicon?id=dwAwSzmTHNEC).
 
 
-La **CLI** es otro programa mÃ¡s de la computadora y su funciÃ³n es
-ejecutar otros comandos. El mÃ¡s popular es `bash`, que es un acrÃ³nimo
-de *Bourne again shell*. Aunque en esta clase tambiÃ©n usaremos `zsh`.
+La **CLI** es otro programa más de la computadora y su función es
+ejecutar otros comandos. El más popular es `bash`, que es un acrónimo
+de *Bourne again shell*. Aunque en esta clase también usaremos `zsh`.
 
 
 ## Archivos y directorios
 
-La computadora guarda la informaciÃ³n de una manera ordenada. El
-sistema encargado de esto es el `file system`. BÃ¡sicamente es un Ã¡rbol
-de informaciÃ³n (aunque hay varios tipos de `file systems` que pueden
+La computadora guarda la información de una manera ordenada. El
+sistema encargado de esto es el `file system`. Básicamente es un árbol
+de información (aunque hay varios tipos de `file systems` que pueden
 utilizar modificaciones a esta estructura de datos, lo que voy a decir
 aplica desde su punto de vista como usuarios) que guarda los datos en
-una abstracciÃ³n que llamamos *archivos* y ordena los archivos en
+una abstracción que llamamos *archivos* y ordena los archivos en
 *carpetas* o *directorios*, los cuales a su vez pueden contener otros
 *directorios*.
 
 Muchos de los comandos del **CLI** o `shell` tienen que ver con la
-manipulaciÃ³n del `file system`.
+manipulación del `file system`.
 
 ### Ejercicio:
 
-- Inicia una sesiÃ³n en `docker` en `bash` (ver `0-docker.Rmd`) usando la imagen de `docker-ds`.
-- DeberÃ­as de ver algo como esto:
+- Inicia una sesión en `docker` en `bash` (ver `0-docker.Rmd`) usando la imagen de `docker-ds`.
+- Deberías de ver algo como esto:
 ```
 ~
 ```
 - Teclea `whoami` y luego presiona *enter*. Este comando te dice que
 usuario eres. Observa que el usuario actual es `itam`. Eres un usuario normal. Existe otro usuario  llamado `root` el cual un **superusuario**, el tiene poderes para modificar todo, obvio, esto
-es peligroso, por lo que serÃ¡ mejor cambiar de usuario, en particular
+es peligroso, por lo que será mejor cambiar de usuario, en particular
 al usuario `itam`.
 
-- Teclea `su itam`. Â¿QuÃ© pasÃ³?
-- Comprueba que eres el usuario `itam` Â¿CÃ³mo le podrÃ­as hacer?
+- Teclea `su itam`. ¿Qué pasó?
+- Comprueba que eres el usuario `itam` ¿Cómo le podrías hacer?
 - Para saber donde estamos en el `file system` usamos `pwd` (de
   *printing working directory*).
-  - Estamos posicionados en la raÃ­z del Ã¡rbol del sistema, el cual es
+  - Estamos posicionados en la raíz del árbol del sistema, el cual es
   simbolizada como `/`.
 - Para ver el listado de un directorio usamos `ls`
-  - Ahora estÃ¡s observando la estructura de directorios de `/`.
+  - Ahora estás observando la estructura de directorios de `/`.
 - Los comandos (como `ls`) pueden tener modificadores o *banderas*,
-  las cuales modifican (vaya sorpresa) el comportamiento por omisiÃ³n
+  las cuales modifican (vaya sorpresa) el comportamiento por omisión
   del comando. Intenta con `ls -l`,  `ls -a`, `ls -la`,  `ls -lh`, `ls
-  -lha`. Discute con tu compaÃ±ero junto a tÃ­ las diferencias entre las banderas.
+  -lha`. Discute con tu compañero junto a tí las diferencias entre las banderas.
 - Para obtener ayuda puedes utilizar `man` y el nombre del
-  comando. Â¿CÃ³mo puedes aprender que hace `ls`?
-- Otro comando muy Ãºtil (aunque no lo parecerÃ¡ ahorita) es `echo`.
-- Las variables de sistema (es decir globales en tu sesiÃ³n) se pueden
-  obtener con el comando `env`. En particular presta atenciÃ³n a
+  comando. ¿Cómo puedes aprender que hace `ls`?
+- Otro comando muy útil (aunque no lo parecerá ahorita) es `echo`.
+- Las variables de sistema (es decir globales en tu sesión) se pueden
+  obtener con el comando `env`. En particular presta atención a
   `HOME`, `USER` y `PWD`.
 - Para evaluar la variable podemos usar el signo de moneda `$`,
   - Imprime las variables con `echo`, e.g. `echo $USER`.
-- El comando `cd` permite cambiar de directorios (Â¿Adivinas de donde
-  viene el nombre del comando?) La sintÃ¡xis es `cd
-  nombre_directorio`. Â¿Puedes navegar hasta tu `$HOME`?
-- Â¿QuÃ© hay de diferente si ahÃ­ ejecutas `ls -la`?
-  - Las dos lÃ­neas de hasta arriba son `.` y `..` las cuales
+- El comando `cd` permite cambiar de directorios (¿Adivinas de donde
+  viene el nombre del comando?) La sintáxis es `cd
+  nombre_directorio`. ¿Puedes navegar hasta tu `$HOME`?
+- ¿Qué hay de diferente si ahí ejecutas `ls -la`?
+  - Las dos líneas de hasta arriba son `.` y `..` las cuales
     significan *este directorio* (`.`) y el directorio padre (`..`)
     respectivamente. Los puedes usar para navegar (i.e. moverte con
     `cd`)
-  - Â¿Puedes regresar a raÃ­z?
-  - En raÃ­z Â¿QuÃ© pasa si ejecutas `cd $HOME`?
+  - ¿Puedes regresar a raíz?
+  - En raíz ¿Qué pasa si ejecutas `cd $HOME`?
   - Otras maneras de llegar a tu `$HOME` son `cd ~` y `cd` solito.
 
-- Verifica que estÃ©s en tu directorio (Â¿QuÃ© comando usarias?) Si no
-  estÃ¡s ahÃ­, ve a Ã©l.
+- Verifica que estés en tu directorio (¿Qué comando usarias?) Si no
+  estás ahí, ve a él.
 - Para crear un directorio existe el comando `mkdir` que recibe como
-  parÃ¡metro un nombre de archivo.
-  - Crea la carpeta `test`. Entra a ella. Â¿QuÃ© hay dentro de ella?
+  parámetro un nombre de archivo.
+  - Crea la carpeta `test`. Entra a ella. ¿Qué hay dentro de ella?
 - Vamos a crear un archivo de texto, para esto usaremos **GNU
 Emacs**. **GNU Emacs** es un editor de textos muy poderoso. Lo
-aprenderemos en la clase (y quizÃ¡ en algÃºn seminario). Por el momento
+aprenderemos en la clase (y quizá en algún seminario). Por el momento
 teclea `emacs hola.txt` y presiona enter (la primera vez que lo corras
-puede tardar mucho, estÃ¡ instalando toda la configuraciÃ³n para la
+puede tardar mucho, está instalando toda la configuración para la
 clase).
-- AparecerÃ¡ una barra de menÃº abajo. Esto indica que ya estÃ¡s en **GNU
-  Emacs**. Teclea "Â¡Hola Mundo!" y luego presiona la siguiente
-  combinaciÃ³n de teclas: `Ctrl+x` seguido de `Ctrl+s` (guardar cambios). Ahora presiona
-  `Ctrl-x` y luego `Ctrl-c` (salir de emacs). Esto los devolverÃ¡ a la
+- Aparecerá una barra de menú abajo. Esto indica que ya estás en **GNU
+  Emacs**. Teclea "¡Hola Mundo!" y luego presiona la siguiente
+  combinación de teclas: `Ctrl+x` seguido de `Ctrl+s` (guardar cambios). Ahora presiona
+  `Ctrl-x` y luego `Ctrl-c` (salir de emacs). Esto los devolverá a la
   **CL**.
-- Verifica que estÃ© el archivo.
-- Para borrar usamos el comando `rm` (de *remove*),Â¿CÃ³mo crees que se borrarÃ­a un directorio?
+- Verifica que esté el archivo.
+- Para borrar usamos el comando `rm` (de *remove*),¿Cómo crees que se borraría un directorio?
 -  Borra el archivo `hola.txt`.
-- Â¿Ahora puedes borrar el directorio `test`? Â¿QuÃ© falla? Â¿De dÃ³nde
+- ¿Ahora puedes borrar el directorio `test`? ¿Qué falla? ¿De dónde
   puedes obtener ayuda?
 - Crea otra carpeta llamada `tmp`, crea un archivo `copiame.txt` con
-  emacs, escribe en Ã©l: "Por favor cÃ³piame".
+  emacs, escribe en él: "Por favor cópiame".
 - Averigua que hacen los comandos `cp` y `mv`.
 - Copia el archivo a uno nuevo que se llame `copiado.txt`.
 - Borra `copiame.txt`.
-- Modifica `copiado.txt`, en la Ãºltima lÃ­nea pon "Â¡Listo!".
+- Modifica `copiado.txt`, en la última línea pon "¡Listo!".
 - Renombra `copiado.txt`  a `copiame.txt`.
-- Por Ãºltimo borra toda la carpeta `tmp`.
+- Por último borra toda la carpeta `tmp`.
 
 
 ## Navegar
-Moverse rÃ¡pidamente en la **CLI** es de vital importancia. Teclea en tu **CLI**
+Moverse rápidamente en la **CLI** es de vital importancia. Teclea en tu **CLI**
 
 ```
 Anita lava la tina
@@ -178,29 +178,29 @@ Anita lava la tina
 
 Y ahora intenta lo siguiente:
 
-- `Ctrl + a` Inicio de la lÃ­nea
-- `Ctrl + e` Fin de la lÃ­nea
-- `Ctrl + r` Buscar hacia atrÃ¡s
+- `Ctrl + a` Inicio de la línea
+- `Ctrl + e` Fin de la línea
+- `Ctrl + r` Buscar hacia atrás
   - Elimina el *flechita arriba*
 - `Ctrl + b` / `Alt + b`
 - `Ctrl + f` / `Alt + f`
-- `Ctrl + k` - Elimina el resto de la lÃ­nea (en realidad corta y pone en el bÃºfer circular)
-- `Ctrl + y` - Pega la Ãºltimo del bÃºfer.
-- `Alt + y`  - Recorre el bÃºfer circular.
+- `Ctrl + k` - Elimina el resto de la línea (en realidad corta y pone en el búfer circular)
+- `Ctrl + y` - Pega la último del búfer.
+- `Alt + y`  - Recorre el búfer circular.
 - `Ctrl + d` - Cierra la terminal
 - `Ctrl + z` - Manda a *background*
 - `Ctrl + c` - Intenta cancelar
 
 ## Pipes y flujos
 
-- `|` (pipe) â€œEntubaâ€ la salida de un comando al siguiente 
+- `|` (pipe) "Entuba" la salida de un comando al siguiente 
 - `>`,`>>`, Redirecciona la salida de los comandos a un sumidero.
 
 ```
 ls >> prueba.dat
 ```
 
-Instalar mis archivos de configuraciÃ³n
+Instalar mis archivos de configuración
 
 ```
 curl -L http://github.com/nanounanue/dotfiles/raw/master/installer.sh | sh 
@@ -208,11 +208,11 @@ curl -L http://github.com/nanounanue/dotfiles/raw/master/installer.sh | sh
 
 - `<` Redirecciona desde el archivo
 ```
-sort < prueba.dat # A la lÃ­nea de comandos acomoda con sort,
+sort < prueba.dat # A la línea de comandos acomoda con sort,
 sort < prueba.dat > prueba_sort.dat # Guardar el sort a un archivo.
 ```
 
-- `&&` es un AND, sÃ³lo ejecuta el comando que sigue a `&&` si el
+- `&&` es un AND, sólo ejecuta el comando que sigue a `&&` si el
 primero es exitoso.
 
 ```
@@ -228,7 +228,7 @@ primero es exitoso.
 - `wc` significa *word count*
   - Cuenta palabras,renglones, bytes, etc.
 
-- En nuestro caso nos interesa la bandera `-l` la cual sirve para contar lÃ­neas.
+- En nuestro caso nos interesa la bandera `-l` la cual sirve para contar líneas.
 
 
 ```
@@ -237,7 +237,7 @@ primero es exitoso.
 ```
 
 - `head` y `tail` sirven para explorar visualmente las primeras diez
-(default) o las Ãºltimas diez (default) renglones del archivo,
+(default) o las últimas diez (default) renglones del archivo,
 respectivamente.
 
 
@@ -263,20 +263,21 @@ Existen otros comando poderosos como `split`, `uniq`, `grep`, etc.
 
 ----
 
-Con estos ejercicios deberÃ­as de ser capaz de manejar los bÃ¡sicos del
-`file system` y de la lÃ­nea de comandos
+Con estos ejercicios deberías de ser capaz de manejar los básicos del
+`file system` y de la línea de comandos
 
 
-## Antes de partir... Â¿Por quÃ© usamos `zsh` en lugar de `bash`?
+## Antes de partir... ¿Por qué usamos `zsh` en lugar de `bash`?
 
 `zsh` es un `bash` recargado, para saber que puede hacer revisa
 [esto](http://www.bash2zsh.com/zsh_refcard/refcard.pdf) y
 [esto](https://github.com/robbyrussell/oh-my-zsh/wiki/Cheatsheet).
 
-AdemÃ¡s, en tu `docker` el `zsh` viene recargado con `oh-my-zsh`.
+Además, en tu `docker` el `zsh` viene recargado con `oh-my-zsh`.
 
 
 ## Referencias adicionales
 
 - [Codecademy - Learn the Command Line](https://www.codecademy.com/learn/learn-the-command-line)
+
 
