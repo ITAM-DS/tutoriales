@@ -2,9 +2,7 @@
 title: "Docker"
 author: "Adolfo De Unánue T."
 date: "14/01/2016"
-output:
-  html_document: default
-  pdf_document: default
+output: html_document
 ---
 
 # Docker
